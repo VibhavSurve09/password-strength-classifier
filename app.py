@@ -44,7 +44,7 @@ async def predict(request:Request, password:str=Form(...)):
     if(predicted==0):
        return templates.TemplateResponse("index.html",context={"request":request,"strength":"Password is Very Weak"})
     if(predicted==2):
-        if probab[0][2]>0.75:
+        if probab[0][2]>0.85:
             return templates.TemplateResponse("index.html", context={"request": request, "strength": "Password is Very strong"})
         else:
             return templates.TemplateResponse("index.html", context={"request": request, "strength": "Strong Password"})
